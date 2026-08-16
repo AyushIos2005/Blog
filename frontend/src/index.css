@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+
+  --color-app: #f3f1fb;
+  --color-panel: #ffffff;
+  --color-border: #e7e3f6;
+  --color-ink: #150f33;
+  --color-ink-soft: #6b6a85;
+  --color-muted: #9694ab;
+
+  --color-brand-50: #f1edff;
+  --color-brand-100: #e3dbff;
+  --color-brand-400: #8b74f7;
+  --color-brand-500: #6d4ff2;
+  --color-brand-600: #5a3aec;
+  --color-brand-700: #4b2fd1;
+
+  --color-accent-pink: #ec4899;
+  --color-accent-cyan: #22d3ee;
+  --color-accent-green: #10b981;
+
+  --color-navy-950: #0a0821;
+  --color-navy-900: #100c2c;
+  --color-navy-800: #17123d;
+}
+
+html, body, #root { height: 100%; }
+
+body {
+  background: var(--color-app);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #d9d4f2; border-radius: 999px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+.brand-gradient {
+  background: linear-gradient(135deg, #7c5cf0 0%, #a855f7 50%, #ec4899 100%);
+}
+
+.hero-gradient {
+  background:
+    radial-gradient(1200px 500px at 15% -10%, rgba(124, 92, 240, 0.35), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(236, 72, 153, 0.18), transparent 55%),
+    linear-gradient(180deg, #100c2c 0%, #0a0821 100%);
+}
+
+.card-shadow {
+  box-shadow: 0 1px 2px rgba(21, 15, 51, 0.04), 0 10px 30px -12px rgba(21, 15, 51, 0.10);
+}
+
+.tag-chip { background: var(--color-brand-50); color: var(--color-brand-600); }
+
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
