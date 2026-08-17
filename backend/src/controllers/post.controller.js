@@ -54,7 +54,10 @@ async function createPost(req, res) {
 
 async function getAllPost(req, res) {
   try {
-    const posts = await postModel.find().populate("author");
+    const posts = await postModel
+      .find()
+      .populate("author", "-password")
+      .populate("like");
 
     return res.status(200).json({
       message: "posts fetched Successfully",
@@ -292,7 +295,7 @@ async function AllCommentGet(req, res) {
 
     const comments = await commentModel
       .find({ post: id })
-      .populate("user")
+      .populate("user", "-password")
       .sort({ createdAt: -1 });
 
     return res.status(200).json({

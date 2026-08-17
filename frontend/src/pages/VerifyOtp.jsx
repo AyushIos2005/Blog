@@ -31,7 +31,7 @@ export default function VerifyOtp() {
     <AuthShell
       eyebrow="OTP"
       title="Verify your email"
-      subtitle="Enter the 6-digit code we emailed you"
+      subtitle="Enter the 8-digit code we emailed you"
       footer={
         <span className="text-[var(--color-ink-soft)]">
           Wrong account?{" "}
@@ -68,8 +68,8 @@ export default function VerifyOtp() {
             required
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
-            placeholder="123456"
-            maxLength={6}
+            placeholder="12345678"
+            maxLength={8}
             className="w-full rounded-xl border border-[var(--color-border)] px-4 py-2.5 text-sm outline-none tracking-[0.5em] text-center font-semibold focus:ring-2 focus:ring-[var(--color-brand-400)]/40"
           />
         </div>

@@ -106,6 +106,14 @@ async function userotpVerfication(req, res) {
         .json({ message: "OTP not found or already used, please request again" });
     }
 
+    // Mongo's TTL index cleans up expired OTPs in the background (runs
+    // roughly every 60s), so check expiry explicitly too instead of
+    // relying only on that sweep timing.
+    if (otpRecord.expiresAt && otpRecord.expiresAt < new Date()) {
+      await otpModel.deleteOne({ _id: otpRecord._id });
+      return res.status(400).json({ message: "OTP expired, please request again" });
+    }
+
     const incomingHash = hashOtp(otp);
     if (!safeCompareHex(otpRecord.otp, incomingHash)) {
       return res.status(400).json({ message: "Invalid OTP" });
