@@ -8,7 +8,7 @@ import axios from "axios";
 // even with CORS allowed.
 //
 // In production, set VITE_API_BASE_URL to your deployed API's full origin.
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+export const API_BASE_URL = "https://blog-pd6p.onrender.com";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
